@@ -13,18 +13,15 @@
             align-items: center;
             height: 100vh;
             background: #f0f0f0;
-            flex-direction: column;
             transition: background 0.5s ease;
+            overflow: auto;
             position: relative; /* Ensure button is positioned relative to body */
         }
         .circle-container {
-            position: absolute;
-            top: 50%; /* Place circles in the middle vertically */
-            left: 50%; /* Place circles in the middle horizontally */
-            transform: translate(-50%, -50%); /* Center the circles */
+
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            overflow: auto;
         }
         .circle {
             position: absolute;
@@ -39,9 +36,9 @@
             padding: 10px;
         }
         .circle-box {
-            width: 300px;
-            height: 280px;
-            border-radius: 30%;
+            width: 200px;
+            height: 150px;
+            border-radius: 50%;
             background-color: white;
             border: 2px solid #000;
             display: flex;
@@ -66,7 +63,7 @@
             text-align: center;
             position: relative;
         }
-        h1 {
+        p {
             font-size: 20px;
             color: white;
             background-image: conic-gradient(#553c9a 30%, #ee4b2b 40%, #ee4b2b 70%, #00c2cb 80%, #553c9a);
@@ -117,9 +114,9 @@
 </head>
 <body>
     <div class="content">
+
+        <p>Bubbles are displayed in random mode and will change each 5 seconds Click on bubbles to see!</p>
         <button id="toggleButton" onclick="toggleDisplay()">Click me!</button>
-        <h1>Bubbles are displayed in random mode and will change each 5 seconds </h1>
-        <p>Click on bubbles to see!</p>
 
     </div>
     <div class="circle-container" id="circleContainer"></div>
@@ -176,10 +173,8 @@
                 circle.style.backgroundColor = getRandomColor();
                 circle.addEventListener('click', () => moveCircle(circle)); // add event listener to each circle
             });
-            // Show h1 and p elements
-            const h1 = document.querySelector('h1');
+            // Show p elements
             const p = document.querySelector('p');
-            if (h1) h1.style.display = 'block';
             if (p) p.style.display = 'block';
         }
 
@@ -206,10 +201,8 @@
 
 
         function fetchData() {
-            // Hide previous state's h1 and p elements
-            const h1 = document.querySelector('h1');
+            // Hide previous state's p elements
             const p = document.querySelector('p');
-            if (h1) h1.style.display = 'none';
             if (p) p.style.display = 'none';
 
             // Clear existing circles
@@ -226,7 +219,7 @@
             // Text for each circle, including optional links
             const texts = [
                 ["Hi, my name is Ellie", "I just started learning web development and I love it!"],
-                ["My hobbies are travelling, eating sushi", "I'm doing master of IT now", "I think majoring in AI is so cool, but it's so challenging"],
+                ["My hobbies are travelling, eating sushi", "I'm doing master of IT now"],
                 [
                     { text: "My LinkedIn", link: "https://www.linkedin.com/in/minh-le35/" },
                     { text: "My Facebook", link: "https://facebook.com" }
